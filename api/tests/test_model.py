@@ -1,10 +1,17 @@
+from pathlib import Path
 import joblib
 import pandas as pd
 from sklearn.metrics import accuracy_score
 
+
 def test_model_accuracy():
-    model = joblib.load("./MachineLearning/models/bank_marketing_svm.pkl")
-    colunas = joblib.load("./MachineLearning/models/colunas_modelo.pkl")
+    base_dir = Path(__file__).resolve().parents[1]
+
+    model_path = base_dir / "MachineLearning" / "models" / "bank_marketing_svm.pkl"
+    columns_path = base_dir / "MachineLearning" / "models" / "colunas_modelo.pkl"
+
+    model = joblib.load(model_path)
+    colunas = joblib.load(columns_path)
 
     url = "https://archive.ics.uci.edu/static/public/222/data.csv"
     df = pd.read_csv(url)
