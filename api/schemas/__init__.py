@@ -1,0 +1,2 @@
+from schemas.cliente_schema import ClienteSchema, PredicaoViewSchema
+from schemas.error_schema import ErrorSchema

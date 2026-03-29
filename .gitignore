@@ -1,0 +1,60 @@
+# =========================
+# 🔹 Ambientes virtuais
+# =========================
+.venv/
+venv/
+env/
+ENV/
+
+# =========================
+# 🔹 Cache Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# =========================
+# 🔹 PyTest / Coverage
+# =========================
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# =========================
+# 🔹 Logs
+# =========================
+*.log
+log/
+
+# =========================
+# 🔹 Jupyter
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# 🔹 Sistema (Mac/Windows)
+# =========================
+.DS_Store
+
+# =========================
+# 🔹 VSCode
+# =========================
+.vscode/
+
+# =========================
+# 🔹 Arquivos temporários
+# =========================
+*.tmp
+*.swp
+
+# =========================
+# 🔹 Banco de dados (se houver)
+# =========================
+*.sqlite3
+
+# =========================
+# 🔹 NÃO IGNORAR (IMPORTANTE)
+# =========================
+# ⚠️ NÃO IGNORAR seus modelos!
+# MachineLearning/models/*.pkl

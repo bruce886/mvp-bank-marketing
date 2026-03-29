@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="/front/styles.css" />
+  <title>Previsão de Adesão a Depósito Bancário</title>
+</head>
+
+<body>
+  <header class="hero">
+    <div class="title">
+      <h1>Previsão de Adesão a Depósito Bancário</h1>
+      <p>
+        Este sistema utiliza Machine Learning para prever se um cliente tem
+        maior probabilidade de aderir a um depósito a prazo com base em suas
+        características e histórico de contato.
+      </p>
+      <p>
+        Preencha os dados abaixo e clique em <strong>"Realizar Previsão"</strong>.
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="form-section">
+      <h2>Dados do Cliente</h2>
+
+      <form id="predictionForm" class="form-grid">
+        <div class="form-group">
+          <label for="age">Idade</label>
+          <input type="number" id="age" placeholder="Ex: 35" required />
+        </div>
+
+        <div class="form-group">
+          <label for="job">Profissão</label>
+          <<select id="job" required>
+              <option value="">Selecione</option>
+              <option value="admin.">Administrador(a)</option>
+              <option value="blue-collar">Trabalhador braçal</option>
+              <option value="entrepreneur">Empreendedor(a)</option>
+              <option value="housemaid">Empregado(a) doméstico(a)</option>
+              <option value="management">Gestão</option>
+              <option value="retired">Aposentado(a)</option>
+              <option value="self-employed">Autônomo(a)</option>
+              <option value="services">Serviços</option>
+              <option value="student">Estudante</option>
+              <option value="technician">Técnico(a)</option>
+              <option value="unemployed">Desempregado(a)</option>
+              <option value="unknown">Desconhecido</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+          <label for="marital">Estado Civil</label>
+          <select id="marital" required>
+            <option value="">Selecione</option>
+            <option value="married">Casado(a)</option>
+            <option value="single">Solteiro(a)</option>
+            <option value="divorced">Divorciado(a)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="education">Escolaridade</label>
+          <select id="education" required>
+            <option value="">Selecione</option>
+            <option value="primary">Primário</option>
+            <option value="secondary">Secundário</option>
+            <option value="tertiary">Superior</option>
+            <option value="unknown">Desconhecida</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="default">Possui inadimplência?</label>
+          <select id="default" required>
+            <option value="">Selecione</option>
+            <option value="yes">Sim</option>
+            <option value="no">Não</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="balance">Saldo Médio Anual</label>
+          <input type="number" id="balance" placeholder="Ex: 1500" required />
+        </div>
+
+        <div class="form-group">
+          <label for="housing">Possui financiamento habitacional?</label>
+          <select id="housing" required>
+            <option value="">Selecione</option>
+            <option value="yes">Sim</option>
+            <option value="no">Não</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="loan">Possui empréstimo pessoal?</label>
+          <select id="loan" required>
+            <option value="">Selecione</option>
+            <option value="yes">Sim</option>
+            <option value="no">Não</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="contact">Tipo de Contato</label>
+          <select id="contact" required>
+            <option value="">Selecione</option>
+            <option value="cellular">Celular</option>
+            <option value="telephone">Telefone</option>
+            <option value="unknown">Desconhecido</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="day">Dia do Último Contato</label>
+          <input type="number" id="day" min="1" max="31" placeholder="Ex: 12" required />
+        </div>
+
+        <div class="form-group">
+          <label for="month">Mês do Último Contato</label>
+          <select id="month" required>
+            <option value="">Selecione</option>
+            <option value="jan">Jan</option>
+            <option value="feb">Fev</option>
+            <option value="mar">Mar</option>
+            <option value="apr">Abr</option>
+            <option value="may">Mai</option>
+            <option value="jun">Jun</option>
+            <option value="jul">Jul</option>
+            <option value="aug">Ago</option>
+            <option value="sep">Set</option>
+            <option value="oct">Out</option>
+            <option value="nov">Nov</option>
+            <option value="dec">Dez</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="duration">Duração do Contato (segundos)</label>
+          <input type="number" id="duration" placeholder="Ex: 180" required />
+        </div>
+
+        <div class="form-group">
+          <label for="campaign">Número de Contatos na Campanha</label>
+          <input type="number" id="campaign" placeholder="Ex: 2" required />
+        </div>
+
+        <div class="form-group">
+          <label for="pdays">Dias desde o último contato</label>
+          <input type="number" id="pdays" placeholder="Ex: 999 ou 5" required />
+        </div>
+
+        <div class="form-group">
+          <label for="previous">Número de contatos anteriores</label>
+          <input type="number" id="previous" placeholder="Ex: 0" required />
+        </div>
+
+        <div class="form-group">
+          <label for="poutcome">Resultado da campanha anterior</label>
+          <select id="poutcome" required>
+            <option value="">Selecione</option>
+            <option value="success">Sucesso</option>
+            <option value="failure">Falha</option>
+            <option value="other">Outro</option>
+            <option value="unknown">Desconhecido</option>
+          </select>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="addBtn">Realizar Previsão</button>
+          <button type="reset" class="clearBtn">Limpar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="result-section">
+      <h2>Resultado da Previsão</h2>
+      <div id="resultCard" class="result-card">
+        <p id="resultText">Preencha os dados do cliente para visualizar a previsão.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/front/scripts.js"></script>
+</body>
+</html>
